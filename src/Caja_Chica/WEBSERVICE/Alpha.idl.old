@@ -1,0 +1,12 @@
+interface Alpha {
+   Alpha(a string) string
+}
+
+interface Alpha1 {
+   Alpha1(a string, b string) string
+}
+
+interface InicioSesion {
+   InicioSesion(c string, d string) string
+}
+

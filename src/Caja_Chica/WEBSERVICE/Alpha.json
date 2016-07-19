@@ -1,0 +1,17 @@
+[{"comment": "", 
+  "functions": [{"comment": "Retornar lista", 
+                 "returns": {"optional": false, "is_array": false, "type": "string"}, 
+                 "params": [{"is_array": false, 
+                             "type": "string", 
+                             "name": "a"}],
+                 "name": "Alpha"}], 
+  "type": "interface", 
+  "name": "Alpha"
+ },
+ {"barrister_version": "0.1.5", 
+  "type": "meta", 
+  "date_generated": 1371230801674, 
+  "checksum": "d717f28051d92d610a92cb1a47608ee0"
+ }
+]
+

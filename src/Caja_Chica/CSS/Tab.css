@@ -1,0 +1,33 @@
+.tabOn, .tabOff, .tabHover
+{
+	width: 100px;
+    height:20px;
+	position:absolute;
+    border:1px solid;
+	border-bottom:none;
+	cursor:pointer;
+	text-align:center;
+}
+
+.tabOn { z-index:2; background-color:#F29818; }
+
+.tabOff { z-index:0; background-color:#FFD4AD; }
+
+.tabHover { background-color:#CCCCCC; }
+
+#tab2 { left:100px; }
+
+#tab3 { left:200px; }
+
+#tabContenido
+{
+	padding:10px;
+	position:absolute;
+	top:20px; left:0px;
+	border:1px solid;
+	width:550px;
+	height:180px;
+	z-index:1;
+}
+
+#demo { overflow:auto; height:245px; width:600px; position:relative; }

@@ -1,0 +1,18 @@
+//
+// The Lista service is easy to use.
+//
+// Examples
+// --------
+//
+//     x = lista.lista(10, 30)
+//     # x == 40
+//
+//     y = lista.lista(44, 10)
+//     # y == 34
+
+interface Lista {
+    // Retornar lista
+    lista(a int, b int) []int
+    
+}
+

@@ -1,0 +1,36 @@
+Nuevo formulario de contacto en ventana modal Ynnova
+Desarrollado por Iván Nicolás Schwindt, PHP y MySQL senior
+*******************************************************************
+
+SOBRE EL FORMULARIO:
+********************
+Esta versión del formulario de contacto se encuentra ampliamente mejorada. La idea de utilizar ventanas modales es que el visitante del sitio pueda realizar consultas desde cualquier página del sitio. Por ejemplo, puede estar viendo un producto y hacer la consulta desde esa misma pantalla.
+
+FUNCIONAMIENTO
+**************
+- La aplicación funciona con Ajax y la librería JQuery.
+- El archivo index.html simula cualquier página de un sitio web con un menú con diferentes opciones. Una de las opciones es CONTACTO que al clickearlo habilita el formulario en la ventana modal.
+- El archivo formulario-contacto.html es el formulario de contacto que aparece en la ventana modal al clickear en la opcion CONTACTO del menú superior.
+- La función EnvioConsulta() dentro del archivo js-contacto-modal-ynnova.js se comunica con a aplicación _envioconsulta.php que analiza si completamos los campos obligatorios y envia un mail de confirmación al visitante y a nosotros.
+- La ventana modal funciona gracias a la libreria Fancybox incluida en este ejemplo.
+
+VENTAJAS
+********
+La utilización de ajax evita el continuo proceso de refrescado del sitio, proceso que consume ancho de banda innecesariamente.
+La ventana modal permite realizar consultas sin salír de la página que estamos viendo.
+
+
+REQUISITOS
+**********
+- PHP 5 o superior
+- JQuery 1.7 o superior
+- Libreria Fancybox
+
+
+ARCHIVOS
+********
+index.html : Archivo ejemplo con un menú de ejemplo. Dentro del menú se encuentra resaltada la opción CONTACTO.
+js-contacto-modal-ynnova.js : Javascript que contiene la función EnvioConsulta() encargada de analizar el contenido del formulario y enviar por mail la consulta. También contiene código fancybox que hace funcionar la ventana modal.
+jquery-1.8.3.min.js : Librería JQuery
+_envioconsulta.php : PHP que se conecta analiza el contenido del formulario y envia la consulta al visitante y a nosotros.
+formulario-contacto.html: es el formulario de contacto que se muestra en la ventana modal.

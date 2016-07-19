@@ -1,0 +1,185 @@
+@charset "iso-8859-1";
+
+.button7 {
+   -moz-border-radius:3px;
+   -webkit-border-radius:3px; 
+   border-radius:3px;
+   background: -moz-linear-gradient(19% 75% 90deg,#F0DEB8, #FDF0D1, #fff 100%);
+   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#F0DEB8), color-stop(.3,#FDF0D1));
+   color:#836d4d;
+   float:left;
+   font-family:arial,helvetica,sans-serif;
+   font-size:15px;
+   font-weight:bold;
+   padding:6px 70px;
+   border: 1px solid #d4c198;
+   text-align:center;
+   vertical-align: middle;
+   horizontal-align: middle;
+   min-width: 100px;
+   max-width: 100px;
+}
+
+.button7:hover {
+   background: -moz-linear-gradient(19% 75% 90deg,#EBD9B4, #F2E6C8, #F5F5F5 100%);
+   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F5F5F5), to(#EBD9B4), color-stop(.3,#F2E6C8));
+}
+
+.puntos
+{
+   text-align: center;
+   width: 30px;
+   height: 20px;
+}
+
+.asistencia
+{
+   color: #0A0;	
+}
+
+.falta
+{
+   color: #D00;	
+}
+
+table.consulta
+{
+   border-collapse: collapse;
+}
+
+table.consulta th
+{
+   padding: 3px;
+   border: 1px solid #000000;
+}
+
+table.consulta td
+{
+   padding: 3px;
+   border: 1px solid #000000;
+}
+
+.pendoc
+{
+   color: #00D;
+}
+
+.faldoc
+{
+   color: #D00;
+}
+
+.fecha
+{
+   width: 22px;
+   word-wrap: break-word;
+   font-size: small;
+}
+
+p.titulo
+{
+	color: #C00;	
+	font-weight: bold;
+	font-size: x-large;
+}
+
+.consulta
+{
+	border-spacing: 0; 
+	border-style: solid;
+	border-width: thin;
+	border-color: black;
+}
+
+table
+{
+	font-family: Verdana;
+	border-spacing: 5px;
+}
+
+table.td
+{
+	vertical-align: middle;
+   color: #CC0000;
+	font-weight: bold;
+}
+
+hr
+{
+	margin-left: 0px;
+	width: 66%;
+	border-color: #0000FF;
+}
+
+input[type=text], [type=password]
+{
+	color: #0000CC;
+	background-color: #FFFFA0;
+}
+
+input[type=text]:disabled
+{
+	color: #0000CC;
+	background-color: #FFFFFF;
+}
+
+.consil
+{
+   color: #0000CC;
+   background-color: #FFFFA0;
+   width: 400px;
+   height: 100px;
+   overflow: auto;
+}
+
+textarea
+{
+	color: #0000CC;
+	background-color: #FFFFA0;
+}
+
+input[type=submit], [type=button]
+{
+	width: 140px;
+	height: 39px;
+}
+
+p.datos {
+	font-weight: bold;
+	color: #0000CC;
+}
+
+.disabled {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+input[type=text].disabled {
+   background-color: #FFFFFF;
+   color: #000000;
+}
+
+.nomcur {
+   white-space: nowrap;
+   font-size: small;
+}
+
+<!--
+.scrollable {
+    height: 100px; /* or any value */
+    overflow-y: auto;
+}
+
+
+body {
+   background:#CCC;
+}
+
+table tr td a hover{
+   background:#3A6794;
+   color:#FFF;		
+}
+
+table tr td a {
+}
+-->

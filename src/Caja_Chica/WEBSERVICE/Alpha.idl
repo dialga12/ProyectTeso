@@ -1,0 +1,3 @@
+interface Alpha {
+   Alpha(a string) string
+}

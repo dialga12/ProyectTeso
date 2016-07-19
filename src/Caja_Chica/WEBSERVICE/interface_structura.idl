@@ -1,0 +1,11 @@
+struct AddRequest {
+    clase string
+    metodo string
+    codusuarios []string
+}
+
+interface Calculator {
+   add(req AddRequest) string
+}
+
+

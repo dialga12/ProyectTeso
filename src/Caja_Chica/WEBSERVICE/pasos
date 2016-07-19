@@ -1,0 +1,143 @@
+***** activar ambiente ****
+    source bin/activate
+***************************
+
+0. instalar PIP
+sudo apt-get install python-pip
+
+1.- instalar barrister , flask, php curl,
+sudo pip install barrister
+sudo pip install flask
+sudo apt-get install PHP5-curl
+
+2.- crear interface lista.idl
+//
+// The Lista service is easy to use.
+//
+// Examples
+// --------
+//
+//     x = lista.lista(10, 30)
+//     # x == 40
+//
+//     y = lista.lista(44, 10)
+//     # y == 34
+
+interface Lista {
+    // Retornar lista
+    lista(a int, b int) []int
+    
+}
+
+3.- Crear archivo .json, .html desde el archivo lista.idl
+barrister -t "My Awesome Interface" -d lista.html -j lista.json lista.idl
+
+
+4.- crear servidor.py
+
+from flask import Flask, request, make_response
+import barrister
+
+# Our implementation of the 'Lista' interface in the IDL
+class Lista(object):
+
+    # Parameters match the params in the functions in the IDL
+    def lista(self, a, b):
+        return [i for i in range(a,b+1)]
+
+
+contract = barrister.contract_from_file("lista.json")
+server   = barrister.Server(contract)
+server.add_handler("Lista", Lista())
+
+app = Flask(__name__)
+
+@app.route("/lista", methods=["POST"])
+def get_lista():
+    resp_data = server.call_json(request.data)
+    resp = make_response(resp_data)
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
+app.run(host="127.0.0.1", port=7667)
+
+5.- Correr el archivo servidor.py
+
+**************
+Seccion php
+**************
+
+1. Descargar el archivo https://raw.github.com/coopernurse/barrister-php/master/barrister.php y ponerlo en la misma ruta donde estara el cliente.php
+
+2. crear cliente.php
+
+<?php
+include_once("barrister.php");
+
+$barrister = new Barrister();
+$client    = $barrister->httpClient("http://localhost:7667/lista");
+$Lista      = $client->proxy("Lista");
+
+print_r ($Lista->lista(7, 14));
+print_r ($Lista->lista(8, 20));
+
+echo "\nIDL metadata:\n";
+$meta = $client->getMeta();
+$keys = array("barrister_version", "checksum");
+foreach ($keys as $i=>$key) {
+  echo "$key=$meta[$key]\n";
+}
+
+?>
+
+**************
+Seccion java
+**************
+1. descargar los .jar en la misma ruta que .json
+   http://mirrors.ibiblio.org/maven2/com/bitmechanic/barrister/0.1.12/barrister-0.1.12.jar
+   http://mirrors.ibiblio.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.7/jackson-mapper-asl-1.9.7.jar
+   http://mirrors.ibiblio.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.7/jackson-core-asl-1.9.7.jar
+   
+2. crear un proyecto netbeans y agregar los jar a la libreria del proyecto.
+
+3. en la ruta donde esta el .json exportar lo .jar
+   export CLASSPATH=barrister-0.1.12.jar:jackson-mapper-asl-1.9.7.jar:jackson-core-asl-1.9.7.jar
+   
+4. este paso genera los .java necesarios para el cliente usando .json
+   descargar el archivo https://raw.github.com/coopernurse/barrister-java/master/idl2java.sh
+   darle permisos de ejecucion y ejecutar
+   sh idl2java.sh -j ARCHIVO.json -p PACKAGE_DEL_NETBEANS -o RUTA_SRC_NETBEANS
+   Para este ejemplo seria:
+   sh idl2java.sh -j lista.json -p javaconsume -o /home/william/Documentos/JSONwebservice/prueba/javaConsume/src/
+
+5. en netbeans crear el archivo JavaConsume.java
+
+    package javaconsume;
+
+    import com.bitmechanic.barrister.HttpTransport;
+    import java.util.Arrays;
+
+    /**
+     *
+     * @author william
+     */
+    public class JavaConsume {
+        public static void main(String argv[]) throws Exception {
+            HttpTransport trans = new HttpTransport("http://localhost:7667/lista");
+            ListaClient lista = new ListaClient(trans);
+
+            System.out.println(Arrays.toString(lista.lista(7L, 10L)));
+            System.out.println(Arrays.toString(lista.lista(3L, 42L)));
+
+            System.out.println("\nIDL metadata:");
+
+            // BarristerMeta is a Idl2Java generated class in the same package
+            // as the other generated files for this IDL
+            System.out.println("barrister_version=" + BarristerMeta.BARRISTER_VERSION);
+            System.out.println("checksum=" + BarristerMeta.CHECKSUM);
+        }
+    }
+
+
+
+
