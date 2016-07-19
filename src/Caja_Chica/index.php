@@ -1,5 +1,5 @@
 <?php
-   require_once 'Libs/Smarty.class.php';
+   require_once 'src/Libs/Smarty.class.php';
    session_start();
    //unset($_SESSION["gcNombre"]);
    //unset($_SESSION["gcCodUsu"]);
@@ -10,5 +10,5 @@
    $loSmarty = new Smarty;
    $loSmarty->assign('scNombre', $_SESSION["gcNombre"]);
    $loSmarty->assign('scCodigo', $_SESSION["gcCodUsu"]);
-   $loSmarty->display('Plantillas/Mnu0000.tpl');
+   $loSmarty->display('src/Template/Pages/Mnu0000.tpl');
 ?> 

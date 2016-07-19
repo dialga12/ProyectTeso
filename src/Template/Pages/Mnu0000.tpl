@@ -20,7 +20,7 @@
          <li>
             <label for="folder1">Caja Chica</label><input type="checkbox" id="folder1" onClick="desmarcar('folder1')"/>
             <ol>
-            <li class="file"><a href="Caja1000.php"> Apertura de Caja Chica</a></li>
+            <li class="file"><a href="src/Controller/Caja1000.php"> Apertura de Caja Chica</a></li>
             <li class="file"><a href="Caja1010.php"> Ingreso de Caja Chica</a></li>
             </ol>
             </li>

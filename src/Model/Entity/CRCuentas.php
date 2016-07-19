@@ -1,6 +1,8 @@
 <?php
-require_once "Clases/CBase.php";
-require_once "Clases/CSql.php";
+
+require_once "src/Model/Entity/CBase.php";
+die('123');
+require_once "src/Model/Entity/CSql.php";
 
 //-------------------------------------
 // Rendicion de Cuentas

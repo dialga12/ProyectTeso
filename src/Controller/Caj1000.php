@@ -1,7 +1,9 @@
 <?php
    // Registro y mantenimiento de empleados
-   require_once 'Libs/Smarty.class.php';
-   require_once 'Clases/CRCuentas.php';
+   //require_once 'src/Libs/Smarty.class.php';
+   //die('123');
+   require_once 'src/Model/Entity/CRCuentas.php';
+   die('123');
    session_cache_limiter();
    session_start();
    $loSmarty = new Smarty;
@@ -34,7 +36,7 @@
       $llOk = true;
       if (!$llOk) {
          fxAlert($lo->pcError);
-         header('Location: Mnu0000.php?Id=4000');
+         header('Location: src/Template/Pages/Mnu0000.php?Id=4000');
       } else {
          $_SESSION['paNomPer']=$lo->paNomPer;
          fxScreen();
@@ -48,7 +50,7 @@
       $loSmarty->assign('scNroDni', $_SESSION['paNomPer'][1]);
       $loSmarty->assign('scEntida', $_SESSION['paNomPer'][2]);
       $loSmarty->assign('scCodEnt', $_SESSION['paNomPer'][2]);
-      $loSmarty->display('Plantillas/Caj1000.tpl');
+      $loSmarty->display('src/Template/Pages/Caj1000.tpl');
    }
 
    function fxBuscar(){
